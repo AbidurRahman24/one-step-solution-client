@@ -7,6 +7,7 @@ import Login from './pages/login/Login';
 import Blog from './pages/blog/Blog';
 import Shipment from './pages/shipment/Shipment';
 import NotMatch from './pages/notMatch/NotMatch';
+import ServicesDetails from './pages/home/servicesDetails/ServicesDetails';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/services" element={<Services />}></Route>
+        <Route path="/product/:productId" element={<ServicesDetails />}></Route>
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/shipment" element={<Shipment />}></Route>
         <Route path="/login" element={<Login />}></Route>

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Service from '../home/service/Service';
 
 const HomeServices = () => {
     const [product, setProduct] = useState([])
+    
     const [card, setCard] = useState([])
     useEffect(() => {
-        fetch('fakeData.json')
+        fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then(data => {
                 setProduct(data)
@@ -14,6 +16,7 @@ const HomeServices = () => {
     const handleAddProudct =(product) =>{
         const newCard = [...card, product]
         setCard(newCard)
+        
     }
     return (
         <>
