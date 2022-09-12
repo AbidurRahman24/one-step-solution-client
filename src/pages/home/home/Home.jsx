@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <>
             <header>
-                <Navigation />
+                
             </header>
             <main>
                 <Header ></Header>

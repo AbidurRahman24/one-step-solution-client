@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialSignUp from '../scLogin/SocialSignUp';
 
 const Login = () => {
 
@@ -15,7 +16,10 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleEmailBlur = event => {
         setEmail(event.target.value);
@@ -30,7 +34,7 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     }
     if (user) {
-        navigate('/');
+        navigate(from, {replace: true});
     }
     return (
         <div>
@@ -57,6 +61,7 @@ const Login = () => {
             <p>
                 No member? <Link className='form-link' to="/register">Create an account</Link>
             </p>
+            <SocialSignUp></SocialSignUp>
         </div>
     );
 };
