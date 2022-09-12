@@ -8,6 +8,7 @@ import Blog from './pages/blog/Blog';
 import Shipment from './pages/shipment/Shipment';
 import NotMatch from './pages/notMatch/NotMatch';
 import ServicesDetails from './pages/home/servicesDetails/ServicesDetails';
+import Register from './pages/register/Register';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/shipment" element={<Shipment />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
         <Route path="*" element={<NotMatch />}></Route>
       </Routes>
       <ToastContainer />
