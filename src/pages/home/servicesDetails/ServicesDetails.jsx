@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -11,7 +13,7 @@ const ServicesDetails = () => {
         fetch(`https://jsonplaceholder.typicode.com/users/${productId}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setSingleProduct(data)
             })
     }, [productId])
