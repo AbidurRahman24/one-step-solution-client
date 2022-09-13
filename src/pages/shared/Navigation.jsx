@@ -30,10 +30,11 @@ function Navigation() {
           user ? <Nav>
           <Link  to="/manage">Manage</Link>
           <Link  to="/addProduct">Add</Link>
+          <Link  to="/order">order</Link>
           </Nav>:''}
           <Nav>
           {user ? <Button onClick={handleSignOut}>Sign Out</Button> :
-          <Link  onClick={handleSignOut} eventKey={2} to="/login">Login</Link>
+          <Link  onClick={handleSignOut}  to="/login">Login</Link>
         }
           </Nav>
         </Navbar.Collapse>

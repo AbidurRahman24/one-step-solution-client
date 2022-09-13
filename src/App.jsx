@@ -13,6 +13,7 @@ import RequireAuth from './pages/RequireAuth/RequireAuth';
 import Navigation from './pages/shared/Navigation';
 import AddProduct from './pages/dashboard/addProduct/AddProduct';
 import ManageServices from './pages/dashboard/manageServices/ManageServices';
+import Order from './pages/dashboard/order/Order';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/product/:productId" element={<RequireAuth><ServicesDetails /></RequireAuth>}></Route>
         <Route path="/addProduct" element={<RequireAuth><AddProduct /></RequireAuth>}></Route>
         <Route path="/manage" element={<RequireAuth><ManageServices /></RequireAuth>}></Route>
+        <Route path="/order" element={<RequireAuth><Order /></RequireAuth>}></Route>
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/shipment" element={<Shipment />}></Route>
         <Route path="/login" element={<Login />}></Route>
