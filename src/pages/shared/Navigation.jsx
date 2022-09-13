@@ -26,6 +26,11 @@ function Navigation() {
             <Link to="/blog">Blog</Link>
           </Nav>
          <span style={{color: 'white'}}>{user?.email}</span>
+         {
+          user ? <Nav>
+          <Link  to="/manage">Manage</Link>
+          <Link  to="/addProduct">Add</Link>
+          </Nav>:''}
           <Nav>
           {user ? <Button onClick={handleSignOut}>Sign Out</Button> :
           <Link  onClick={handleSignOut} eventKey={2} to="/login">Login</Link>

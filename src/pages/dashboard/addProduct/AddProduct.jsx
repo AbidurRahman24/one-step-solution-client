@@ -15,7 +15,7 @@ const AddProduct = () => {
         })
         .then(res=> res.json())
         .then(result =>{
-            console.log(result);
+            window.location.reload(); 
         } )
 
     };
@@ -23,10 +23,9 @@ const AddProduct = () => {
         <div className='w-50 mx-auto'>
             <h2>Please add a service</h2>
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
-                <input className='mb-2' placeholder='name' {...register("Name", { required: true, maxLength: 20 })} />
+                <input className='mb-2' placeholder='name' {...register("Name", { required: true})} />
                 <textarea className='mb-2' placeholder='description' {...register("description",)} />
-                <input className='mb-2' placeholder='price' type="number" {...register("price", { min: 18, max: 99 })} />
-                <input className='mb-2' placeholder='minQuantity' type="number" {...register("min",)} />
+                <input className='mb-2' placeholder='price' type="number" {...register("price", )} />
                 <input className='mb-2' placeholder='MaxQuantity' type="number" {...register("max",)} />
                 <input className='mb-2' placeholder='image' type="text" {...register("image",)} />
                 <input className='mb-2' type="submit" value='Add Product' />

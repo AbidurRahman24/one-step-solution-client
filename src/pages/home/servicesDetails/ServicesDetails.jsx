@@ -10,7 +10,7 @@ const ServicesDetails = () => {
     const [singleProduct, setSingleProduct] = useState([])
     const [user] = useAuthState(auth)
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/users/${productId}`)
+        fetch(`http://localhost:5000/order/${productId}`)
             .then(response => response.json())
             .then(data => {
                 // console.log(data);
@@ -24,26 +24,37 @@ const ServicesDetails = () => {
         setInfo(newInfo)
     }
     const handleSubmit = () =>{
-        const order = {...user, Order: info, }  
-        console.log('handle submited');
+        const order = {...user, Order: info }  
+        const url = `http://localhost:5000/addProduct`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+        .then(res=> res.json())
+        .then(result =>{
+            window.location.reload(); 
+        } )
     }
     return (
         <div>
             <div>
             <p>service destails : {productId}</p>
-            <p>{singleProduct.id}</p>
-            <p>Name: {singleProduct.id}</p>
-            <p>Phone: {singleProduct.phone}</p>
+            <p>{singleProduct._id}</p>
+            <p>Name: {singleProduct.Name}</p>
+            {/* <p>Phone: {singleProduct.phone}</p> */}
             </div>
             <div>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="Name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control onBlur={handleBlur} type="text" name='name' placeholder="Enter name" />
+                    <Form.Control onBlur={handleBlur} type="text" name='name' defaultValue={user.displayName} placeholder="Enter name" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control onBlur={handleBlur} type="email" name='email' placeholder="Enter Email" />
+                    <Form.Control onBlur={handleBlur} type="email" defaultValue={user.email} readOnly name='email' placeholder="Enter Email" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicAddress">
                     <Form.Label>Address</Form.Label>
@@ -57,7 +68,7 @@ const ServicesDetails = () => {
                     <Form.Label>Quantity</Form.Label>
                     <Form.Control onBlur={handleBlur} type="number" name='quantity' placeholder="minimum order quantity 5" />
                 </Form.Group>
-                <p>Price: </p>
+                <h4>Price: {singleProduct.price} </h4>
                 <Button variant="primary" type="submit">
                     Checkout Product
                 </Button>
