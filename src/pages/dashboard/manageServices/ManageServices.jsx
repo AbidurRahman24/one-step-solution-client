@@ -2,7 +2,8 @@ import React from 'react';
 import useServices from '../../../hooks/useServices';
 
 const ManageServices = () => {
-    const [product, setProduct] = useServices()
+    const [product, setProduct] = useServices() //custom hook
+    // console.log(product);
     const handleDelete = (id) =>{
         const proceed = window.confirm('Are you sure?')
         if(proceed){
@@ -12,6 +13,7 @@ const ManageServices = () => {
             })
             .then(res => res.json())
             .then(data =>{
+                // console.log(product);
                 const remaining = product.filter(product => product._id !== id)
                 setProduct(remaining)
             })
@@ -21,8 +23,8 @@ const ManageServices = () => {
         <div>
             <h3>This is ManageServices</h3>
             {
-                product.map(product => <div key={product.id}>
-                    <h4>{product.name} <button onClick={() =>handleDelete(_id)}>X</button></h4>
+                product.map(product => <div key={product._id}>
+                    <h4>{product.Name} <button onClick={() =>handleDelete(product._id)}>X</button></h4>
                 </div>)
             }
         </div>
