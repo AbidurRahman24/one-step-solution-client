@@ -30,12 +30,28 @@ const Login = () => {
         setPassword(event.target.value);
     }
 
-    const handleUserSignIn = event => {
+    const handleUserSignIn = async event => {
         event.preventDefault();
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        fetch('http://localhost:5000/login', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({email}),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                localStorage.setItem('token', data.token);
+                navigate(from, {replace: true});
+            })
+            .catch((error) => {
+                // console.error('Error:', error);
+            });
     }
     if (user) {
-        navigate(from, {replace: true});
+        // navigate(from, {replace: true});
     }
     // const resetPassword = async () => {
     //     const email = setEmail(event.target.value);
@@ -72,15 +88,15 @@ const Login = () => {
             <p>
                 No member? <Link className='form-link' to="/register">Create an account</Link>
             </p>
-            <p>Forget Password? 
-            <button
-        onClick={async () => {
-          await sendPasswordResetEmail(email);
-          toast('Sent email');
-        }}
-      >
-        Reset password
-      </button>
+            <p>Forget Password?
+                <button
+                    onClick={async () => {
+                        await sendPasswordResetEmail(email);
+                        toast('Sent email');
+                    }}
+                >
+                    Reset password
+                </button>
 
                 {/* <button className='btn btn-link text-primary pe-auto text-decoration-none' 
                 onClick={resetPassword}>Reset Password</button>  */}
