@@ -7,23 +7,26 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
-
+import './Nav.css'
+// import classes from './'
 function Navigation() {
   const [user] = useAuthState(auth)
-  // console.log(user);
+  
   const handleSignOut = () =>{
     signOut(auth);
 }
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Link to="/">One Step Solution</Link>
+      <Navbar.Brand ><Link to="/">OneStepSolution</Link></Navbar.Brand>
+        
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/">Home</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/blog">Blog</Link>
+          <Nav.Link><Link to="/">Home</Link></Nav.Link>
+          <Nav.Link> <Link to="/services">Services</Link></Nav.Link>
+          <Nav.Link> <Link to="/blog">Blog</Link></Nav.Link>
           </Nav>
          <span style={{color: 'white'}}>{user?.email}</span>
          {
