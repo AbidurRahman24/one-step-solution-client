@@ -1,0 +1,12 @@
+.artical-container{
+    background-color: #151515;
+}
+.artical-header{
+    text-align: center;
+    color: #08B9FF;
+    padding: 20px 15px;
+}
+.artical-body{
+    text-align: center;
+    padding: 30px;
+}

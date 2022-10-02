@@ -1,0 +1,15 @@
+.footer-container {
+    background: #0a0a0a;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+.footer-text{
+    color: aliceblue;
+}
