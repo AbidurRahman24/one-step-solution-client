@@ -1,9 +1,11 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
 import React from 'react';
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../shared/loading/Loading';
-
+import './Social.css'
 const SocialSignUp = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
@@ -25,30 +27,33 @@ const SocialSignUp = () => {
     }
 
     return (
-        <div>
-            <div className='d-flex align-items-center'>
+        <div >
+            <div className='d-flex justify-content-center align-items-center'>
                 <div style={{ height: '1px' }} className='bg-primary w-50'></div>
                 <p className='mt-2 px-2'>or</p>
                 <div style={{ height: '1px' }} className='bg-primary w-50'></div>
             </div>
             {errorElement}
-            <div>
-                <button
+            <div className='social-button'>
+                <MDBBtn 
                     onClick={() => signInWithGoogle()}
-                    className='btn btn-info w-50 d-block mx-auto my-2'>
-                    <img style={{ width: '30px' }}  alt="" />
-                    <span className='px-2'>Google Sign In</span>
-                </button>
-                <button className='btn btn-info w-50 d-block mx-auto my-2'>
-                    <img style={{ width: '30px' }}  alt="" />
-                    <span className='px-2'>Facebook Sign In</span>
-                </button>
-                <button
+                    className="mb-4 w-50"
+                    size="lg" style={{backgroundColor: '#dd4b39'}}>
+                        <FontAwesomeIcon icon="fa-brands fa-google"  className="mx-2"/>
+                        Continue wiht google
+                </MDBBtn>
+                <br />
+                <MDBBtn className="mb-4 w-50" size="lg" style={{backgroundColor: '#3b5998'}}>
+                <MDBIcon fab icon="facebook-f" className="mx-2"/>
+                Continue with facebook
+                </MDBBtn>
+                <br />
+                <MDBBtn size="lg" style={{ backgroundColor: '#000' }}
                     onClick={() => signInWithGithub()}
-                    className='btn btn-info w-50 d-block mx-auto'>
+                    className='mb-4 w-50'>
                     <img style={{ width: '30px' }}  alt="" />
-                    <span className='px-2'>Github Sign In</span>
-                </button>
+                    Continue with github
+                </MDBBtn>
             </div>
         </div>
     );
