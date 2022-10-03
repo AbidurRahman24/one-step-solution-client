@@ -6,7 +6,6 @@ import { Autoplay, Pagination } from "swiper";
 import image1 from "./img/brand-1.png";
 import image2 from "./img/brand-2.png";
 import image3 from "./img/brand-3.png";
-import image4 from "./img/brand-4.jpeg";
 import image5 from "./img/brand-5.png";
 import image6 from "./img/brand-6.png";
 import './Brand.css'
@@ -69,11 +68,6 @@ const Brand = () => {
           <SwiperSlide>
             <div className="my-10 img">
               <img src={image3} alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="my-10 img">
-              <img src={image4} alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>

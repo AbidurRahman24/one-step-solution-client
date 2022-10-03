@@ -8,7 +8,7 @@ import './Footer.css'
 AOS.init();
 const Footer = () => {
     return (
-        <footer className='footer-container' data-aos="fade-up" data-aos-duration="5000">
+        <footer className='footer-container' data-aos="fade-in" data-aos-duration="5000">
             <Container bg='Dark' >
                 <Row style={{ padding: '10px 10px'}}>
                     <Col sm>

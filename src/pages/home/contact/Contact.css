@@ -1,0 +1,14 @@
+.contact-container{
+    background-color: #151515;
+}
+.contact-header{
+    text-align: center;
+    color: #08B9FF;
+    padding: 20px 15px;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
