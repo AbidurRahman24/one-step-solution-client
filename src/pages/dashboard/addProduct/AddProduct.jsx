@@ -1,3 +1,4 @@
+import { MDBBtn, MDBContainer, MDBInput } from 'mdb-react-ui-kit';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -20,17 +21,17 @@ const AddProduct = () => {
 
     };
     return (
-        <div className='w-50 mx-auto'>
+        <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
             <h2>Please add a service</h2>
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
-                <input className='mb-2' placeholder='name' {...register("Name", { required: true})} />
-                <textarea className='mb-2' placeholder='description' {...register("description",)} />
-                <input className='mb-2' placeholder='price' type="number" {...register("price", )} />
-                <input className='mb-2' placeholder='MaxQuantity' type="number" {...register("max",)} />
-                <input className='mb-2' placeholder='image' type="text" {...register("image",)} />
-                <input className='mb-2' type="submit" value='Add Product' />
+                <MDBInput wrapperClass='mb-4' className='mb-2' placeholder='name' {...register("Name", { required: true})} />
+                <MDBInput wrapperClass='mb-4' placeholder='description' {...register("description",)} />
+                <MDBInput wrapperClass='mb-4' className='mb-2' placeholder='price' type="number" {...register("price", )} />
+                <MDBInput wrapperClass='mb-4' className='mb-2' placeholder='MaxQuantity' type="number" {...register("max",)} />
+                <input wrapperClass='mb-4'ut className='mb-2' placeholder='image url' type="text" {...register("image",)} />
+                <MDBBtn  className='mb-2' type="submit" value='Add Product' >Add Product </MDBBtn>
             </form>
-        </div>
+        </MDBContainer>
     );
 };
 

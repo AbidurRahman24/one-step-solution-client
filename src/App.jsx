@@ -18,7 +18,7 @@ import Order from './pages/dashboard/order/Order';
 function App() {
 
   return (
-    <>
+    <div style={{background: '#000',  color: '#fff', height: '100%'}}>
     <Navigation />
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -34,7 +34,7 @@ function App() {
         <Route path="*" element={<NotMatch />}></Route>
       </Routes>
       <ToastContainer />
-    </>
+    </div>
   )
 }
 

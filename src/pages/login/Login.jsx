@@ -73,8 +73,8 @@ const Login = () => {
     //     }
     // }
     return (
-        <>
-        <MDBContainer fluid className="p-3 my-5">
+        <div style={{background: '#000' , color:'#fff'}}>
+        <MDBContainer fluid className="p-3 ">
         <MDBRow>
         <MDBCol col='10' md='6'>
           <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image" />
@@ -84,9 +84,6 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <MDBInput className='w-50' wrapperClass='mb-4' size="lg" onBlur={handleEmailBlur} type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -121,7 +118,7 @@ const Login = () => {
             </MDBRow>
             </MDBContainer>
             <ToastContainer />
-            </>
+            </div>
     );
 };
 
