@@ -34,6 +34,7 @@ function Navigation() {
           <Link  to="/manage">Manage</Link>
           <Link  to="/addProduct">Add</Link>
           <Link  to="/order">order</Link>
+          <Link  to="/deshboard">Deshboard</Link>
           </Nav>:''}
           <Nav>
           {user ? <Button onClick={handleSignOut}>Sign Out</Button> :

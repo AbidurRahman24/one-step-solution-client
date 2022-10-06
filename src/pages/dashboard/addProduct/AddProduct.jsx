@@ -1,6 +1,8 @@
 import { MDBBtn, MDBContainer, MDBInput } from 'mdb-react-ui-kit';
 import React from 'react';
+import { Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import SideBar from '../../shared/sidebar/SideBar';
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
@@ -21,6 +23,11 @@ const AddProduct = () => {
 
     };
     return (
+        <Row style={{height:'600px'}}>
+        <Col sm={3}>
+            <SideBar></SideBar>
+        </Col>
+        <Col sm={9}>
         <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
             <h2>Please add a service</h2>
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
@@ -32,6 +39,8 @@ const AddProduct = () => {
                 <MDBBtn  className='mb-2' type="submit" value='Add Product' >Add Product </MDBBtn>
             </form>
         </MDBContainer>
+        </Col>
+      </Row>
     );
 };
 
