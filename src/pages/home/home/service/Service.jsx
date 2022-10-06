@@ -11,7 +11,7 @@ const Service = ({handleAddProudct, product}) => {
         <Col style={{margin:"10px"}} className=''>
             <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={image} />
-      <Card.Body>
+      <Card.Body style={{color:'#000'}}>
         <Card.Title>{Name}</Card.Title>
         <Card.Text>{description.slice(0, 99)}...</Card.Text>
       </Card.Body>

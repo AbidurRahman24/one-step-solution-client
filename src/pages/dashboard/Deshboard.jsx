@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import SideBar from '../shared/sidebar/SideBar';
 import AddProduct from './addProduct/AddProduct';
-import Order from './order/Order';
 
 const Deshboard = () => {
     return (
@@ -11,7 +10,7 @@ const Deshboard = () => {
             <SideBar></SideBar>
         </Col>
         <Col sm={9}>
-            <Order></Order>
+            <h1>Page comming soon</h1>
         </Col>
       </Row>
     );

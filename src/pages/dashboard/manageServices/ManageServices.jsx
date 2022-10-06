@@ -3,10 +3,12 @@ import { Col, Row } from 'react-bootstrap';
 import useServices from '../../../hooks/useServices';
 import SideBar from '../../shared/sidebar/SideBar';
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDeleteLeft, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const ManageServices = () => {
     const [product, setProduct] = useServices() //custom hook
-    // console.log(product);
+    console.log(product);
     const handleDelete = (id) =>{
         const proceed = window.confirm('Are you sure?')
         if(proceed){
@@ -34,6 +36,9 @@ const ManageServices = () => {
             <tr>
           <th scope='col'>No</th>
           <th scope='col'>Name</th>
+          <th scope='col'>Description</th>
+          <th scope='col'>Price</th>
+          <th scope='col'>Max</th>
           <th scope='col'>Cancel</th>
         </tr>
         </MDBTableHead>
@@ -43,7 +48,10 @@ const ManageServices = () => {
                      <tr>
           <th scope='row'>{product._id}</th>
           <td>{product.Name} </td>
-          <td><button onClick={() =>handleDelete(product._id)}>X</button></td>
+          <td>{product.description.slice(0, 50)+'...'} </td>
+          <td>{product.price} </td>
+          <td>{product.max} </td>
+          <td> <FontAwesomeIcon icon={faDeleteLeft} onClick={() =>handleDelete(product._id)}/></td>
                     
         </tr>
                 )
